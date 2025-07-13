@@ -1,0 +1,891 @@
+/************** Color Variables ************/
+:root {
+  --font-color: rgba(0, 0, 0, 0.311);
+  --shadow-color: rgba(87, 87, 87, 0.109);
+  --btn-color: orangered;
+
+  --primary: #fff;
+  --bg-color: rgb(255, 243, 254);
+  --bg-envelope-color: #f5edd1;
+  /* --envelope-tab: #ecdeb8;
+  --envelope-cover: #e6cfa7; */
+  --envelope-tab: pink;
+  --envelope-cover: rgb(240, 164, 177);
+  --txt-color: #444;
+  --heart-color: #8a1538;
+}
+
+/**************** Global Style ********************/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  font-family: "Raleway", sans-serif;
+  box-sizing: border-box;
+  background: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-color);
+}
+
+* {
+  box-sizing: border-box;
+  list-style: none;
+}
+
+/************** Envelope Section ************/
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+.typewriter-container {
+  position: absolute;
+  top: calc(50% + 150px); /* adjust for spacing below envelope */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+}
+
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #7A1C2A;
+  width: 0;
+  animation: typing 2s steps(20, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 20ch;
+  }
+}
+
+@keyframes blink {
+  0%, 100% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+#weather {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+#weather h3 {
+  font-size: 1.5rem;
+  color: #8a1538;
+  margin-bottom: 1rem;
+}
+
+
+#countdown-section {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+#countdown {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.2rem;
+  color: black;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 2rem auto;
+}
+#countdown {
+  letter-spacing: 0.1em;
+}
+
+
+
+.envelope-wrapper {
+  animation: jump 1s ease-in-out infinite;
+}
+
+#envelope-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.envelope-wrapper {
+  background: var(--bg-envelope-color);
+  box-shadow: 0 0 40px var(--shadow-color);
+  position: relative;
+}
+
+.envelope {
+  position: relative;
+  width: 300px;
+  height: 230px;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--envelope-tab);
+  clip-path: polygon(0 0, 50% 50%, 100% 0, 100% 0, 0 0);
+  z-index: 2;
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out 0.7s;
+}
+
+.envelope::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--envelope-cover);
+  z-index: 1;
+}
+
+.letter {
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  width: 90%;
+  max-width: 400px;
+  background: #FFD3AC;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 20px;
+  border-radius: 12px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;  /* make sure it's above the envelope */
+  transition: all 0.6s ease-in-out;
+}
+
+.flap .letter {
+  bottom: 120px;  /* how far it floats out */
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 600px) {
+  .letter {
+    width: 80%;
+    max-width: 280px;
+    padding: 15px;
+  }
+
+  .flap .letter {
+    bottom: 40px; /* slightly less float-up on small screens */
+  }
+}
+
+/************** Heart Animation ************/
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: var(--heart-color);
+  z-index: 2;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: transform 0.5s ease-in-out 1s;
+  box-shadow: 0 1px 6px var(--shadow-color);
+  cursor: pointer;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: var(--heart-color);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -7.5px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  left: 7.5px;
+}
+
+
+.flap .envelope::before {
+  transform: rotateX(180deg);
+  z-index: 0;
+}
+
+.flap .letter {
+  bottom: 100px;
+  transform: scale(1.5);
+  transition-delay: 1s;
+}
+
+.flap .heart {
+  transform: rotate(90deg);
+  transition-delay: 0.4s;
+}
+
+/************** Main Site Layout ************/
+#main-site {
+  background-image: url("./images/background.png");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*********** Header **************/
+header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: #fff5f7;
+  box-shadow: 0px 1px 10px var(--shadow-color);
+  display: flex;
+  justify-content: center;
+  background: #fff5f7;
+  position: sticky;
+}
+
+header a.active {
+  color: #8a1538;
+  font-weight: bold;
+  border-bottom: 2px solid #8a1538;
+}
+
+
+header li {
+  margin: 15px;
+}
+header a {
+  color: var(--font-color);
+}
+
+/*********** Title **************/
+.container-title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-align: center;
+}
+.container-title h1 {
+  font-size: 70pt;
+  color: black;
+  font-family: "MonteCarlo", cursive;
+}
+.container-title h2 {
+  font-weight: bolder;
+}
+
+/*********** Section Container **************/
+.container {
+  position: relative;
+  background: white;
+  box-shadow: 10px 10px 10px var(--shadow-color);
+  width: 50%;
+  margin: auto;
+  border-radius: 9px;
+  text-align: center;
+  overflow: hidden;
+}
+
+h1,
+h3 {
+  font-size: 25pt;
+  padding-top: 10px;
+  color: #8a1538;
+}
+p {
+  padding: 10px;
+}
+
+.container img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+/*********** RSVP **************/
+.container-form, .countdown-form{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 10px 10px 10px var(--shadow-color);
+  background: rgba(255, 255, 255, 0.431);
+  width: 50%;
+  margin: auto;
+  border-radius: 9px;
+  text-align: center;
+  padding: 30px 0;
+}
+.container-form{
+  height: 100%;
+}
+
+.container-form input,
+.countdown-form input,
+textarea {
+  width: 80%;
+  margin: 8px auto;
+  padding: 15px;
+  border: 1px solid transparent;
+  border-bottom: 1px solid var(--shadow-color);
+  border-radius: 7px;
+  outline: none;
+  background: transparent;
+}
+.container-form textarea ,
+.countdown-form textarea{
+  height: 200px;
+}
+.container-form button,
+.countdown-form button{
+  width: 110px;
+  padding: 10px;
+  margin: 10px auto;
+  margin-right: 7.8%;
+  border-radius: 7px;
+  outline: none;
+  background: transparent;
+  border: 1px solid var(--btn-color);
+  color: var(--btn-color);
+}
+.container-form input:hover,
+textarea:hover {
+  background: white;
+}
+.container-form button:hover {
+  background: var(--btn-color);
+  border: 1px solid var(--btn-color);
+  color: white;
+}
+
+.map-buttons {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.map-buttons a {
+  text-decoration: none;
+  padding: 0.6em 1em;
+  background-color: #8a1538;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.map-buttons a:hover {
+  background-color: #bf8186;
+}
+
+
+/************** Fade In ***************/
+.fade-in {
+  animation: fadeIn ease 6s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/************** Media Queries **************/
+@media screen and (max-width: 992px) {
+  * {
+    font-size: 11pt;
+  }
+  .title-pic img{
+    width:40vh !important;
+  }
+
+  .container {
+    width: 90%;
+  }
+
+  h1,
+  h3 {
+    font-size: 15pt;
+  }
+
+  .container img {
+    height: 240px;
+  }
+
+  .container-title h1 {
+    margin-top: 250px;
+    font-size: 48pt;
+  }
+
+  .container-form,
+  .countdown-form {
+    width: 90%;
+  }
+
+  .container-form input,
+  .countdown-form input,
+  textarea,
+  button {
+    width: 80%;
+  }
+
+  .container-form button {
+    padding: 10px;
+  }
+
+  .letter {
+    right: 23%;
+    width: 60%;
+  }
+}
+/* entourage sec */
+#entourage {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  padding: 2rem 1rem;
+}
+
+#entourage h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5rem;
+  color: #8a1538; /* Burgundy */
+  margin-bottom: 1.5rem;
+}
+
+#entourage h3 {
+  font-weight: 700;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#entourage p,
+#entourage li {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#entourage ul {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+#entourage .two-columns {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+/* wedding details */
+#wedding-details {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: 'Raleway', sans-serif;
+}
+
+#wedding-details h1 {
+  font-family: 'Parisienne', cursive;
+  font-size: 2.5rem;
+  color: #8a1538;
+  margin-bottom: 2rem;
+}
+
+#wedding-details h3 {
+  font-size: 1.25rem;
+  color: #8a1538;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#wedding-details p {
+  max-width: 600px;
+  margin: 0.5rem auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+#wedding-details a {
+  color: #8a1538;
+  font-style: italic;
+  font-size: 0.95rem;
+  word-break: break-word;
+}
+#wedding-details a.room-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6em 1.2em;
+  background-color: #8a1538; /* Soft blush */
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#wedding-details a.room-link:hover {
+  background-color: #bf8186;
+}
+/* fade in */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+}
+/* footer */
+.forever-footer {
+  display: none;
+  position: sticky;
+  bottom: 0;
+  background-color: #fff5f7; /* soft blush */
+  color: #8a1538; /* burgundy */
+  text-align: center;
+  padding: 0.8em 0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  z-index: 1000;
+  border-top: 1px solid #eac6cb;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+
+
+.room-link {
+  background-color: #d99ca1; /* blush red */
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 8px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none; /* remove underline */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 150px; /* optional: consistent width */
+  margin: 1rem auto; /* center horizontally */
+}
+
+.room-link:hover {
+  background-color: #bf8186; /* darker blush red on hover */
+}
+/* image */
+.carousel-container {
+  max-width: 600px;
+  margin: 1rem auto;
+  overflow: hidden;
+  position: relative;
+}
+/* .carousel {
+  display: flex;
+  margin-left: 32px;
+  margin-right: 32px;
+  transition: transform 0.5s ease-in-out;
+}
+.carousel-image {
+  width: 100%;
+  max-width: 100%;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+.carousel-image.active {
+  opacity: 1;
+} */
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-image {
+  width: 100%;        /* Make sure image fills container width */
+  height: 70vh;      /* Set fixed height */
+  object-fit: contain;  /* Crop image to fill box without stretching */
+  display: none;      /* Hide by default */
+}
+
+.carousel-image.active {
+  display: block;     /* Show only the active one */
+}
+
+
+/* Modal styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 999; 
+  padding-top: 60px; 
+  left: 0; top: 0; width: 100%; height: 100%; 
+  overflow: auto; 
+  background-color: rgba(0,0,0,0.8);
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 8px;
+}
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+}
+.close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.close:hover {
+  color: #bbb;
+}
+.carousel-image {
+  display: none;
+  width: 100%;
+  height: 70vh;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-image.active {
+  display: block;
+  opacity: 1;
+}
+
+#enter-site-btn {
+  background-color: #800020; /* Deep burgundy */
+  color: #fff;
+  font-family: 'Raleway', sans-serif;
+  font-size: 8pt;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+#enter-site-btn:hover {
+  background-color: #a52a2a; /* Lighter burgundy */
+  transform: scale(1.05);
+}
+
+
+.radio-group input{
+  width: 5%;
+}
+
+/* poem */
+#poem {
+  max-width: 600px;
+  margin: 3rem auto 4rem auto;
+  padding: 2rem 3rem;
+  background: rgba(255, 223, 228, 0.6); /* soft blush pink translucent */
+  border-radius: 15px;
+  box-shadow: 0 8px 15px rgba(200, 150, 160, 0.3);
+  font-family: "Raleway", sans-serif;
+  font-size: 1.4rem;
+  /* font-weight: bold; */
+  font-style: italic;
+  color: #8a1538; /* deep burgundy */
+  text-align: center;
+  line-height: 1.6;
+  border: 1px solid #f4c1c8;
+  user-select: none;
+  position: relative;
+}
+
+/* optional subtle decorative quotes */
+#poem::before,
+#poem::after {
+  content: '"';
+  font-family: 'Georgia', serif;
+  font-size: 3rem;
+  color: #f7a1a8;
+  position: absolute;
+  top: 10px;
+  font-weight: 900;
+  user-select: none;
+}
+
+#poem::before {
+  left: 20px;
+}
+
+#poem::after {
+  right: 20px;
+  bottom: 10px;
+  top: auto;
+}
+
+.timeline-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 2rem auto;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.timeline-line {
+  position: relative;
+  height: 4px;
+  background-color: #d99ca1;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.timeline-dot {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background-color: #f5f5f5;
+  border: 3px solid #d99ca1;
+  border-radius: 50%;
+  z-index: 2;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.timeline-dot.active {
+  background-color: #d99ca1;
+  transform: scale(1.2);
+}
+
+.timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 700px) {
+  .timeline-container {
+    padding: 0 1rem; /* adds left-right space */
+  }
+
+  .timeline-line,
+  .timeline-labels {
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+  }
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+    margin: 0 2px;
+  }
+
+  .timeline-labels span {
+    font-size: 1rem;
+    width: 30px;
+    text-align: center;
+  }
+}
+
+.secondary-sponsors {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sponsor-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px 0;
+  flex-wrap: wrap;  /* allows wrapping on small screens */
+}
+
+.sponsor-row .left,
+.sponsor-row .right {
+  flex: 1;
+  text-align: center;
+  min-width: 120px;
+}
+
+.sponsor-row .role {
+  flex: 0;
+  margin: 0 10px;
+  font-style: italic;
+}
+
+

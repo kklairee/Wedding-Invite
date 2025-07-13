@@ -1,11 +1,702 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You're Invited! | Anne & Keith 2025 Wedding</title>
-</head>
-<body>
-    <h1>Website WIP...Come back later!</h1>
-</body>
+  <head>
+    <title>Wedding</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Font style -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Raleway:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Style+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=MonteCarlo&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Sofia&display=swap" rel="stylesheet">
+
+      <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+
+
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <!-- Links to the page style -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+      .text button {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1rem;
+        border: none;
+        background-color: #d99ca1;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <audio id="bg-music" loop>
+      <source src="music/romantic-song.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    
+    <!-- <button id="music-toggle" style="position: fixed; top: 20px; right: 20px; z-index: 1000; background: #d99ca1; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">
+      ▶️ Play Music
+    </button>
+     -->
+    <!-- Envelope intro only -->
+    <div class="container" id="envelope-section">
+      <div class="envelope-wrapper">
+        <div class="envelope">
+          <div class="letter">
+            <div class="text">
+              <strong>Dear Guest,</strong>
+              <p>Come celebrate a love meant to be, as we tie the knot & become one.</p>
+              <p style="font-family: 'Style Script', cursive;">With love,<br>Anne & Keith</p>
+              <button id="enter-site-btn">Be part of our love story!</button>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="heart"></div>
+      </div>
+      <div class="typewriter-container">
+        <p class="typewriter" id="typewriter-text"></p>
+      </div>      
+    </div>
+
+    <!-- The rest of the website, hidden on load -->
+    <div id="main-site" style="display: none;">
+      <!-- Navigation bar -->
+      <header>
+        <li><a href="#wedding-details">DETAILS</a></li>
+        <li><a href="#entourage">ENTOURAGE</a></li>
+        <li><a href="#rsvp">RSVP</a></li>
+        <li><a href="#location">LOCATION</a></li>
+      </header>
+
+      <!-- Initial view -->
+      <div class="container-title fade-in">
+        <h1 style="margin-bottom: 10px; margin-top:10px">Anne & Keith</h1>
+        <h2>are getting married!</h2>
+        <h2>12.27.2025</h2>
+      </div>
+
+      <div class="title-pic" style="display: flex; flex-direction:row; justify-content: center;">
+        <img src="images/title-pic3.JPG" alt="" style=" width: 70vh;">
+
+      </div>
+
+      <br /><br /><br />
+
+      <section class="countdown-form fade-in-section" id="countdown-section">
+        <div id="countdown">💍 Loading countdown...</div>
+      </section> 
+
+      <br /><br /><br />
+      
+      <section class="countdown-form fade-in-section" id="poem">
+        <div style="margin:10px">Once upon a time at Olive View Medical Center,
+          Two souls met—not by chance, but by fate.
+          With stolen glances and quiet laughs,
+          A spark was lit, and love began to bloom.
+          From hallway chats to hearts entwined,
+          Our story grew sweeter with time.
+          Now we’re ready to say ‘I do,’
+          To start forever, just us two.
+          We’d be delighted to have you there,
+          To witness the magic and love we share </div>
+      </section> 
+      <br /><br /><br />
+      <!-- Image carousel below the title -->
+      <div class="timeline-container">
+        <div class="timeline-line">
+          <span class="timeline-dot" data-index="0"></span>
+          <span class="timeline-dot" data-index="1"></span>
+          <span class="timeline-dot" data-index="2"></span>
+          <span class="timeline-dot" data-index="3"></span>
+          <span class="timeline-dot" data-index="4"></span>
+          <span class="timeline-dot" data-index="5"></span>
+          <span class="timeline-dot" data-index="6"></span> <!-- engagement -->
+          <span class="timeline-dot" data-index="7"></span>
+          <span class="timeline-dot" data-index="8"></span> <!-- wedding -->
+        </div>
+        <div class="timeline-labels">
+          <span>2019</span>
+          <span>2020</span>
+          <span>2021</span>
+          <span>2022</span>
+          <span>2023</span>
+          <span>2024</span>
+          <span>💍</span>
+          <span>2025</span>
+          <span>💒</span>
+        </div>
+      </div>
+      <div class="carousel-container fade-in-section" style="max-width: 600px; margin: 2rem auto;">
+        <div class="carousel">
+          <img src="images/image_1.jpg" class="carousel-image active" alt="Image 1" data-caption="2019" />
+          <img src="images/image_2.jpg" class="carousel-image" alt="Image 2" data-caption="2020"/>
+          <img src="images/image_3.jpg" class="carousel-image" alt="Image 3" data-caption="2021"/>
+          <img src="images/image_4.jpg" class="carousel-image" alt="Image 3" data-caption="2022" />
+          <img src="images/image_5.jpg" class="carousel-image" alt="Image 3" data-caption="2023"/>
+          <img src="images/image_6.jpg" class="carousel-image" alt="Image 3" data-caption="2024"/>
+          <img src="images/image_7.JPEG" class="carousel-image" alt="Image 3" data-caption="August 24, 2024 | Our Engagement!"/>
+          <img src="images/image_8.jpg" class="carousel-image" alt="Image 3" data-caption="2025"/>
+          <img src="images/image_9.jpg" class="carousel-image" alt="Image 3"  data-caption="Forever begins here 💍 2025"/>
+          <img src="images/image_10.jpg" class="carousel-image" alt="Image 3" data-caption="Forever begins here 💍 2025"/>
+          <img src="images/image_11.jpg" class="carousel-image" alt="Image 3" data-caption="Forever begins here 💍 2025"/>
+          <img src="images/image_12.jpg" class="carousel-image" alt="Image 3" data-caption="Forever begins here 💍 2025"/>
+
+          <!-- Add more images if you want -->
+        </div>
+        <div class="carousel-caption" style="text-align: center; margin-top: 10px; font-family: Raleway, sans-serif; font-size: 1.1rem;">
+          <!-- Caption text will go here -->
+        </div>
+             
+        <div id="image-modal" class="modal">
+          <span class="close">&times;</span>
+          <img id="modal-img" />
+          <div id="caption"></div>
+        </div>
+      </div>
+      <br /><br /><br />
+      <section class="container love-story fade-in-section" id="our-love-story" style="background: #fff0f5; padding: 2rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 800px; margin: 2rem auto;">
+        <h1 style="text-align: center; font-family: 'Parisienne', cursive; font-size: 2.5rem; margin-bottom: 1rem;">Our Love Story</h1>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+          Every love story is unique, but ours is my favorite 😍
+        </p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 1.1rem; line-height: 1.7;">
+          We met at a time when neither of us was looking—but fate clearly had its own plans. It all began in the most ordinary place: at work—Olive View Medical Center Psych ER, in 2019. We were just trying to survive another shift! But one ordinary workday turned into something extraordinary. The spark? Quiet, gentle, but very real. From that very first moment, something just clicked. It wasn’t loud or grand—just something steady, beautiful, and true.
+        </p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 1.1rem; line-height: 1.7;">
+          As the days passed, simple conversations turned into deep connections. We shared laughs, dreams, and even those awkward silences that somehow felt comforting. Little did we know that those small, ordinary moments would become the foundation of something so meaningful.
+        </p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 1.1rem; line-height: 1.7;">
+          We grew together—learning, supporting, and loving one another through life’s twists and turns. What started as a casual encounter slowly blossomed into a love that feels like home.
+        </p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 1.1rem; line-height: 1.7;">
+          Now, six years later, we’re ready to turn the page and begin our next chapter—as one. And as we do, we carry with us the sweet memory of how it all began: simple, serendipitous, and truly ours. 💖
+        </p>
+        <p style="font-family: 'Raleway', sans-serif; font-size: 1.1rem; line-height: 1.7; text-align: center; margin-top: 1.5rem;">
+          With all our hearts,<br>
+          <span style="font-family: 'Parisienne', cursive; font-size: 1.5rem;">Anne & Keith 🥰</span>
+        </p>
+      </section>
+     
+      <br /><br /><br />
+
+      <section class="container fade-in-section" id="wedding-details">
+        <h1>Details</h1>
+      
+        <h3>Attire: Formal</h3>
+        <p>
+          Ladies: Floor-length gown or formal cocktail dress<br />
+          Gentlemen: Black suit and tie
+        </p>
+      
+        <h3>A Note on Gift</h3>
+        <p>
+          Your prayers and presence at our wedding are the greatest gift of all.<br />
+          If you wish to honor us with a gift,<br />
+          contributing to our future together would be greatly appreciated.
+        </p>
+      
+        <h3>Accommodation</h3>
+        <p>
+          A room block has been reserved at the Westin Carlsbad Resort & Spa.<br />
+          Please book your stay by November 26, 2025.
+        </p>
+        <a class="room-link" href="https://www.marriott.com/event-reservations/reservation-link.mi?id=1740611994457&key=GRP&guestreslink2=true&app=resvlink" target="_blank">
+          Book Your Room!
+        </a>
+      </section>
+
+      
+
+      <br /><br /><br />
+
+      <section class="container fade-in-section" id="weather">
+        <h3>☀️ Destination Forecast</h3>
+        <a class="weatherwidget-io" 
+           href="https://forecast7.com/en/33d16n117d35/carlsbad/?unit=us"
+           data-label_1="CARLSBAD"
+           data-label_2="WEATHER"
+           data-theme="pure"
+           data-font="Roboto"
+           data-icons="Climacons"
+           data-mode="Current"
+           >CARLSBAD WEATHER</a>
+      </section>
+      
+      <br /><br /><br />
+
+      <!-- Registry - Second section  -->
+      <section class="container fade-in-section" id="entourage">
+        <h1>💐 Entourage</h1>
+      
+        <h3>Parents of the Bride</h3>
+        <p>Mrs. Linette Cabahug<br>Mr. Carmelito Cabahug</p>
+      
+        <h3>Parents of the Groom</h3>
+        <p>Mrs. Ma. Jinky Tamisen<br>Mr. Norman Tamisen</p>
+      
+        <h3>Grandmother of the Bride</h3>
+        <p>Mrs. Conchita Cabahug</p>
+      
+        <h3>Grandmother of the Groom</h3>
+        <p>Ms. Thelma Gentullaga</p>
+      
+        <h3>Principal Sponsors</h3>
+        <div class="two-columns">
+          <ul>
+            <li>Mrs. Angela Mangilit</li>
+            <li>Mrs. Cecilia Klaus</li>
+            <li>Mrs. Ester Acosta</li>
+            <li>Mrs. Gail Lopez</li>
+            <li>Dr. Lourdes Aquino</li>
+            <li>Ms. Maria Alegre</li>
+            <li>Mrs. Marilen Quimson</li>
+            <li>Mrs. Mary Lou Cabahug</li>
+            <li>Mrs. Perla Trinidad</li>
+            <li>Mrs. Shirley Garcia</li>
+          </ul>
+          <ul>
+            <li>Mr. Alexander Quintana</li>
+            <li>Mr. August Cabahug</li>
+            <li>Mr. Brian Laoharangsima</li>
+            <li>Mr. Eduardo Aquino</li>
+            <li>Mr. Fred Policarpio</li>
+            <li>Mr. Gerardo Aquino</li>
+            <li>Mr. Jaime Mejia</li>
+            <li>Mr. Marlito Mandap</li>
+            <li>Mr. Marco Mansilla</li>
+            <li>Mr. Sotero Cabahug</li>
+          </ul>
+        </div>
+      
+        <h3>Matron of Honor</h3>
+        <p>Mrs. Frances Erika Hontiveros</p>
+      
+        <h3>Best Man</h3>
+        <p>Mr. Garrett Steadman</p>
+      
+        <h3>Bridesmaids</h3>
+        <ul>
+          <li>Ms. Bianca Baylon</li>
+          <li>Mrs. Hannah Rhed Climaco</li>
+          <li>Mrs. Mary Allen Driz</li>
+          <li>Mrs. Schelma Mendoza-Guinto</li>
+        </ul>
+      
+        <h3>Groomsmen</h3>
+        <ul>
+          <li>Mr. Dennis Poon</li>
+          <li>Mr. Hans Herring</li>
+          <li>Mr. Lorenzo Dorado</li>
+          <li>Mr. Steven Blais</li>
+        </ul>
+      
+        <h3>Secondary Sponsors</h3>
+        <div class="secondary-sponsors">
+          <div class="sponsor-row">
+            <span class="left">Ms. Klaire Jhincis Sobrepena</span>
+            <span class="role"><em>Candle</em></span>
+            <span class="right">Mr. Earvin Ian Cabahug</span>
+          </div>
+          <div class="sponsor-row">
+            <span class="left">Ms. Jaden Ysabella Quimson</span>
+            <span class="role"><em>Veil</em></span>
+            <span class="right">Mr. Gabriel Anthony Quimson</span>
+          </div>
+          <div class="sponsor-row">
+            <span class="left">Ms. Friday Nicole Cabahug</span>
+            <span class="role"><em>Cord</em></span>
+            <span class="right">Mr. Paul Siegfried Barrios</span>
+          </div>
+        </div>
+      
+        <h3>Other Roles</h3>
+        <ul>
+          <li><strong>Bible Bearer:</strong> Arabella Tiffany Atutubo</li>
+          <li><strong>Ring Bearer:</strong> Lucas Paul Pabalan</li>
+          <li><strong>Coin Bearer:</strong> Andrea Kayla Atutubo</li>
+          <li><strong>Flower Girl:</strong> Sofia Love Pabalan</li>
+        </ul>
+      </section>
+      
+    
+      <br /><br /><br />
+      
+
+      <!-- RSVP form -->
+      
+      <form  action="https://formsubmit.co/klaire.sobrepena@gmail.com"method="POST" class="container-form fade-in-section" id="rsvp">
+        <h1>R.S.V.P</h1>
+        <div style="display:flex; flex-direction: column;">
+        <label for="name">Your Name(s):</label>
+        <input name="name" type="text" placeholder="Name" required />
+        <label style="margin: 8px auto">Will you be attending?</label>
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="attendance" value="yes" required />
+            Yes, can’t wait!
+          </label>
+          <label>
+            <input type="radio" name="attendance" value="no" required />
+            Sadly can’t make it
+          </label>
+        </div>
+        <label style="margin: 8px auto" for="number">Phone Number:</label>
+        <input name="phone" type="number" placeholder="Number" required />
+        <label for="guests">Number of guest(s) attending:</label>
+        <input type="number" id="guests" name="guests" placeholder="0" min="0" required />
+      
+        <label for="diet">Any dietary restrictions or allergies?</label>
+        <input type="text" id="diet" name="diet restrictions" placeholder="Please specify if any" />
+      
+        <label for="song">Song you’ll dance to if we play it: 🎶</label>
+        <input type="text" id="song" name="song" placeholder="Your special song" />
+      
+        <label for="message">Message for the couple (optional):</label>
+        <textarea id="message" name="message" placeholder="Write a message..."></textarea>
+      
+      </div>
+        <button type="submit">Send</button>
+      </form>
+
+      <br /><br /><br />
+
+      <!-- Details - First section -->
+      <section class="container fade-in-section" id="location">
+        <h3>You're invited to our wedding on <br /> December 27, 2025 at 1:00 PM</h3>
+      
+        <h4>St. Thomas More Catholic Church</h4>
+        <p>1450 S. Melrose Dr<br />Oceanside, CA 92056</p>
+        <div class="map-buttons">
+          <a href="https://www.google.com/maps/search/?api=1&query=St.+Thomas+More+Catholic+Church,+Oceanside,+CA" target="_blank">📍 Open in Google Maps</a>
+          <a href="https://maps.apple.com/?q=St.+Thomas+More+Catholic+Church,+Oceanside,+CA" target="_blank">📍 Open in Apple Maps</a>
+        </div>
+      
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.2214075956645!2d-117.31200262406357!3d33.19046297349592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc6c32a2aa5b0f%3A0x832cccb9c47c8be4!2sThe%20Westin%20Carlsbad%20Resort%20%26%20Spa!5e0!3m2!1sen!2sus!4v1719487742269!5m2!1sen!2sus"
+          width="100%" height="300" style="border:0; border-radius:12px;"
+          allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      
+        <h4>Reception to follow at:</h4>
+        <h4>The Westin Carlsbad Resort and Spa</h4>
+        <p>5480 Grand Pacific Dr<br />Carlsbad, CA 92008</p>
+        <div class="map-buttons">
+          <a href="https://www.google.com/maps/search/?api=1&query=The+Westin+Carlsbad+Resort+and+Spa,+Carlsbad,+CA" target="_blank">📍 Open in Google Maps</a>
+          <a href="https://maps.apple.com/?q=The+Westin+Carlsbad+Resort+and+Spa,+Carlsbad,+CA" target="_blank">📍 Open in Apple Maps</a>
+        </div>
+      
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3344.2214075956645!2d-117.31200262406357!3d33.19046297349592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dc6c32a2aa5b0f%3A0x832cccb9c47c8be4!2sThe%20Westin%20Carlsbad%20Resort%20%26%20Spa!5e0!3m2!1sen!2sus!4v1719487742269!5m2!1sen!2sus"
+          width="100%"
+          height="300"
+          style="border:0; border-radius:12px;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </section>
+      <br /><br /><br />
+      <div style="text-align:center; margin: 2rem 0;">
+        <button id="download-invite-btn" style="padding: 12px 24px; background-color: #d99ca1; color: white; border:none; border-radius:8px; cursor:pointer; font-size:1rem;">
+          Download Invitation
+        </button>
+      </div>
+      <br /><br /><br />
+
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Countdown
+        const countdown = document.getElementById("countdown");
+        const target = new Date("2025-12-27T13:00:00").getTime();
+    
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const diff = target - now;
+    
+          if (diff <= 0) {
+            countdown.innerHTML = "💍 It's wedding time!";
+            return;
+          }
+    
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const minutes = Math.floor((diff / (1000 * 60)) % 60);
+          const seconds = Math.floor((diff / 1000) % 60);
+    
+          countdown.innerHTML = `
+          <div>${days} days</div>
+          <div>${hours} hrs</div>
+          <div>${minutes} mins</div>
+          <div>${seconds} secs</div>
+          <div>💍 Until the big day!</div>
+        `;
+        }
+    
+        setInterval(updateCountdown, 1000); // Live update every second
+        updateCountdown(); // Call it immediately
+    
+        // Flap animation
+        const envelope = document.querySelector('.envelope-wrapper');
+        envelope.addEventListener('click', () => {
+          envelope.classList.toggle('flap');
+        });
+
+        document.getElementById('download-invite-btn').addEventListener('click', () => {
+          const link = document.createElement('a');
+          link.href = 'weddinginvite.pdf'; // path to your PDF
+          link.download = 'weddinginvite.pdf'; // name of downloaded file
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+    
+        // Enter site logic
+
+        const enterBtn = document.getElementById('enter-site-btn');
+        const bgMusic = document.getElementById('bg-music');
+        enterBtn.addEventListener('click', () => {
+
+          // Play the music
+          bgMusic.play().catch(() => {
+            // Handle error if autoplay is blocked by browser
+            console.log("Autoplay prevented. User interaction needed to play audio.");
+          });
+
+          document.getElementById('envelope-section').style.display = 'none';
+          document.getElementById('main-site').style.display = 'block';
+          document.querySelector('.forever-footer').style.display = 'flex';
+          window.scrollTo(0, 0);
+        });
+
+
+        // active sec
+        const sections =  document.querySelectorAll("section, form#rsvp");
+        const navLinks = document.querySelectorAll("header a");
+
+        window.addEventListener("scroll", () => {
+  let current = "";
+
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop - 100;
+    const sectionHeight = section.clientHeight;
+    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+      current = section.getAttribute("id");
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove("active");
+    const href = link.getAttribute("href").substring(1);
+    if (href === current && current !== "") {
+      link.classList.add("active");
+    }
+  });
+});
+
+
+
+        // fade
+        const fadeSections = document.querySelectorAll('.fade-in-section');
+
+          const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // animate only once
+              }
+            });
+          }, {
+            threshold: 0.1
+          });
+
+          fadeSections.forEach(section => {
+            observer.observe(section);
+          });
+
+          
+    
+        // Typewriter effect
+        const text = "You're invited!!";
+        const el = document.getElementById("typewriter-text");
+    
+        function typeLoop() {
+          el.textContent = "";
+          el.style.width = "0ch";
+    
+          let i = 0;
+          const type = setInterval(() => {
+            if (i <= text.length) {
+              el.textContent = text.slice(0, i);
+              el.style.width = `${i}ch`;
+              i++;
+            } else {
+              clearInterval(type);
+              setTimeout(typeLoop, 2000);
+            }
+          }, 100);
+        }
+    
+        typeLoop();
+
+        const images = document.querySelectorAll('.carousel-image');
+  let currentIndex = 0;
+  const totalImages = images.length;
+
+  function showImage(index) {
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === index);
+    });
+    const captionDiv = document.querySelector('.carousel-caption');
+    const captionText = images[index].getAttribute('data-caption');
+    captionDiv.textContent = captionText ? captionText : '';
+
+
+    const dots = document.querySelectorAll('.timeline-dot');
+    dots.forEach(dot => dot.classList.remove('active'));
+
+    let dotIndex;
+
+    if (index <= 5) {
+      dotIndex = index;            // 2019–2024
+    } else if (index === 6) {
+      dotIndex = 6;                // 💍 Engagement
+    } else if (index === 7) {
+      dotIndex = 7;                // 2025
+    } else if (index >= 8 && index <= 11) {
+      dotIndex = 8;                // 💒 Wedding photos
+    }
+
+    dots[dotIndex].classList.add('active');
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % totalImages;
+    showImage(currentIndex);
+  }
+
+  showImage(currentIndex);
+
+  const modal = document.getElementById('image-modal');
+  const modalImg = document.getElementById('modal-img');
+  const captionText = document.getElementById('caption');
+  const closeBtn = document.querySelector('.close');
+
+  images.forEach(img => {
+    img.addEventListener('click', () => {
+      clearInterval(interval);
+      modal.style.display = 'block';
+      modalImg.src = img.src;
+      captionText.textContent = img.alt;
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    interval = setInterval(nextImage, 3000);
+  });
+
+  modal.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      interval = setInterval(nextImage, 3000);
+    }
+  });
+
+  // Close modal on clicking outside image
+  modal.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+      interval = setInterval(nextImage, 3000);
+    }
+  }
+
+        enterBtn.addEventListener('click', () => {
+        document.getElementById('envelope-section').style.display = 'none';
+        document.getElementById('main-site').style.display = 'block';
+        window.scrollTo(0, 0);
+        const colors = ['#FADADD', '#B76E79', '#FFE4E1'];
+
+        for (let i = 0; i < 7; i++) {
+          setTimeout(() => {
+            confetti({
+              particleCount: 150,
+              spread: 90 + Math.random() * 20,
+              startVelocity: 40,
+              gravity: 0.6,
+              scalar: 1.1,
+              origin: {
+                x: Math.random() * 0.8 + 0.1,
+                y: Math.random() * 0.4
+              },
+              colors: colors
+            });
+          }, i * 250);
+        }
+        interval = setInterval(nextImage, 3000);
+        });
+            
+        // RSVP placeholder
+        async function sendEmail() {
+          alert("This is a demo and the message couldn't be sent.");
+        }
+        window.sendEmail = sendEmail;
+      });
+
+      !function(d,s,id){
+    var js,fjs=d.getElementsByTagName(s)[0];
+    if(!d.getElementById(id)){
+      js=d.createElement(s);
+      js.id=id;
+      js.src='https://weatherwidget.io/js/widget.min.js';
+      fjs.parentNode.insertBefore(js,fjs);
+    }
+  }(document,'script','weatherwidget-io-js');
+
+  const music = document.getElementById('background-music');
+const musicToggleBtn = document.getElementById('music-toggle');
+
+musicToggleBtn.addEventListener('click', () => {
+  if (music.paused) {
+    music.play();
+    musicToggleBtn.textContent = '⏸️ Pause Music';
+  } else {
+    music.pause();
+    musicToggleBtn.textContent = '▶️ Play Music';
+  }
+});
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <footer class="forever-footer">
+      <div class="footer-content">
+        <img src="images/logo.png" alt="Logo" class="footer-logo" />
+        <span>With love, Anne & Keith</span>
+      </div>
+    </footer>
+    
+  </body>
 </html>
+
+
